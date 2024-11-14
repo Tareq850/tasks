@@ -31,33 +31,18 @@ class HomeControllerImp extends HomeController {
     Get.toNamed("/profile");
   }
 
-  // @override
-  // Future<String> decryptData(String encryptedData) async {
-  //   String? encryptionIv = await services.storage.read(key: "encryption_iv");
-  //   final iv = encrypt.IV.fromBase64(encryptionIv!);
-  //   // إذا تم التحقق بنجاح، أكمل فك التشفير
-  //   final keyString = await services.storage.read(key: "encryption_key");
-  //   if (keyString == null) {
-  //     throw Exception("Encryption key not found");
-  //   }
-  //   final encrypter =
-  //       encrypt.Encrypter(encrypt.AES(encrypt.Key.fromUtf8(keyString)));
-  //   final decrypted = encrypter.decrypt64(encryptedData, iv: iv);
-  //   return decrypted;
-  // }
-
   Future<bool> _showPasswordDialog() async {
     TextEditingController passwordController = TextEditingController();
     bool isValid = false;
     await Get.defaultDialog(
-      title: "أدخل كلمة المرور",
+      title: "Password",
       content: Column(
         children: [
           TextField(
             controller: passwordController,
             obscureText: true,
             decoration: InputDecoration(
-              hintText: "كلمة المرور",
+              hintText: "Password",
             ),
           ),
         ],
